@@ -14,8 +14,6 @@ public class linked_list {
         L1.add(4);
         L1.add(6);
         L1.add(5);
-        L1.add(9);
-        L1.add(9);
         L1.add(2,6);
         L1.addAll(0,L2);
         L1.addLast(6);
