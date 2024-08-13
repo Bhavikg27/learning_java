@@ -11,5 +11,6 @@ public class array_deque {
         ad1.addFirst(5);
         System.out.println(ad1.getFirst());
         System.out.println(ad1.getLast());
+        System.out.println(ad1);
     }
 }
