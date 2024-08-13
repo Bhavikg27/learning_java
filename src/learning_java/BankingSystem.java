@@ -1,4 +1,4 @@
-package learning_java.learning_java;
+package learning_java;
 
 import java.util.ArrayList;
 import java.util.List;

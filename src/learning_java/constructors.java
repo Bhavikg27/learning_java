@@ -1,4 +1,4 @@
-package learning_java.learning_java;
+package learning_java;
 
 class myMainEmployee{
     private int id;
