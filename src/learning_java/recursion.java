@@ -17,7 +17,9 @@ public class recursion {
         //printNto1(number);
         //print1toN(1,number);
         //SumOfNNaturalNumbers(1,number,0);
-        factorialOfN(1,number,1);
+        //factorialOfN(1, number, 1);
+        //System.out.println(factorialofn(number));
+        System.out.println(printFibonacciSequence(number));
     }
 
     // Method to print Fibonacci sequence up to numTerms terms
@@ -32,6 +34,7 @@ public class recursion {
             b = sum;
         }
     }
+
     // Method to print Reverse Fibonacci sequence up to numTerms terms
     public static void printReverseFibonacci(int numTerms) {
         int a = 0;
@@ -44,6 +47,7 @@ public class recursion {
             a = sum;
         }
     }
+
     // printing N to 1
     public static void printNto1(int n) {
         if (n < 1) {
@@ -52,35 +56,65 @@ public class recursion {
         System.out.println(n);
         printNto1(n - 1);
     }
+
     // printing 1 to N
-    public static void print1toN(int i,int n) {
+    public static void print1toN(int i, int n) {
         System.out.println(i);
-        if(i==n){
+        if (i == n) {
             return;
         }
-        print1toN(i+1,n);
+        print1toN(i + 1, n);
 
     }
+
     // sum of first n natural number
-    public static void SumOfNNaturalNumbers(int i,int n, int sum){
-        if(i==n){
+    public static void SumOfNNaturalNumbers(int i, int n, int sum) {
+        if (i == n) {
             sum += i;
             System.out.println(sum);
-            return ;
+            return;
         }
-        sum+=i;
-        SumOfNNaturalNumbers(i+1,n,sum);
+        sum += i;
+        SumOfNNaturalNumbers(i + 1, n, sum);
     }
-    public static void factorialOfN(int i, int n, int product){
-        if(n==0){
+
+    //factorial of n
+    //way 1
+    public static void factorialOfN(int i, int n, int product) {
+        if (n == 0 || n == 1) {
             System.out.println(1);
             return;
-        } else if (i==n) {
+        } else if (i == n) {
             product *= i;
             System.out.println(product);
             return;
         }
         product *= i;
-        factorialOfN(i+1,n,product);
+        factorialOfN(i + 1, n, product);
+    }
+
+    //way 2
+    public static int factorialofn(int n) {
+        if (n == 1 || n == 0) {
+            return 1;
+        }
+
+        int fact_of_n_minus_1 = factorialofn(n - 1);
+        int fact_n = n * fact_of_n_minus_1;
+        return fact_n;
+    }
+
+    public static int printFibonacciSequence(int n){
+        // 0,1,1,2,3,5,8,13,21,34,55...
+        if(n==0){
+            System.out.println(0 + " ");
+            return 0;
+        } else if (n==1) {
+            System.out.println(1 + " ");
+            return 1;
+        }
+
+        int final_ans = printFibonacciSequence(n-1) + printFibonacciSequence(n-2);
+        return final_ans;
     }
 }
