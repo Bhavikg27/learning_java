@@ -11,6 +11,7 @@ public class hashing {
         myHashSet.add(9);
         myHashSet.add(5);
         myHashSet.add(19);
+        myHashSet.add(23);
         System.out.println(myHashSet);
     }
 }
