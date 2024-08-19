@@ -5,47 +5,10 @@ import java.util.Scanner;
 public class recursion {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        //        System.out.print("Enter the number of terms in the Fibonacci sequence: ");
-        //        int numTerms = scanner.nextInt();
-        //
-        //        System.out.println("Fibonacci sequence:");
-        //        printFibonacci(numTerms);
-        //        System.out.println();
-        //        printReverseFibonacci(numTerms);
-        //        scanner.close();
         int number = scanner.nextInt();
-        //printNto1(number);
-        //print1toN(1,number);
-        //SumOfNNaturalNumbers(1,number,0);
-        //factorialOfN(1, number, 1);
-        //System.out.println(factorialofn(number));
-        System.out.println(printFibonacciSequence(number));
-    }
-
-    // Method to print Fibonacci sequence up to numTerms terms
-    public static void printFibonacci(int numTerms) {
-        int a = 0;
-        int b = 1;
-
-        for (int i = 0; i < numTerms; i++) {
-            System.out.print(a + " ");
-            int sum = a + b;
-            a = b;
-            b = sum;
-        }
-    }
-
-    // Method to print Reverse Fibonacci sequence up to numTerms terms
-    public static void printReverseFibonacci(int numTerms) {
-        int a = 0;
-        int b = 1;
-
-        for (int i = 0; i < numTerms; i++) {
-            System.out.print(a + " ");
-            int sum = b - a;
-            b = a;
-            a = sum;
-        }
+        int power = scanner.nextInt();
+        System.out.println(Math_power(number,power));
+        System.out.println(Math_power_2(number,power));
     }
 
     // printing N to 1
@@ -92,29 +55,56 @@ public class recursion {
         product *= i;
         factorialOfN(i + 1, n, product);
     }
-
     //way 2
-    public static int factorialofn(int n) {
+    public static int factorialOfN(int n) {
         if (n == 1 || n == 0) {
             return 1;
         }
 
-        int fact_of_n_minus_1 = factorialofn(n - 1);
+        int fact_of_n_minus_1 = factorialOfN(n - 1);
         int fact_n = n * fact_of_n_minus_1;
         return fact_n;
     }
 
-    public static int printFibonacciSequence(int n){
+    public static void printFibonacciSequence(int a, int b, int n) {
         // 0,1,1,2,3,5,8,13,21,34,55...
+        if (n == 0) {
+            return;
+        }
+        int c = a + b;
+        System.out.println(c);
+        printFibonacciSequence(b, c, n - 1);
+    }
+
+    public static void printReverseFibonacciSequence(int a, int b, int n) {
+        // 0,1,-1,2,-3,5,-8,13,-21,34...
+        if (n == 0) {
+            return;
+        }
+        int c = a - b;
+        System.out.print(c + " ");
+        printReverseFibonacciSequence(b,c,n-1);
+
+    }
+    // math power with stack height = n
+    public static int Math_power(int x,int n){
         if(n==0){
-            System.out.println(0 + " ");
-            return 0;
-        } else if (n==1) {
-            System.out.println(1 + " ");
             return 1;
         }
-
-        int final_ans = printFibonacciSequence(n-1) + printFibonacciSequence(n-2);
-        return final_ans;
+        int power = Math_power(x,n-1);
+        int answer = x * power;
+        return answer;
     }
+    // math power with stack height = log(n)
+    public static int Math_power_2(int x, int n){
+        if(n==0){
+            return 1;
+        }
+        if(n%2==0){
+            return Math_power_2(x,n/2) * Math_power_2(x,n/2);
+        }else{
+            return Math_power_2(x,n/2)*Math_power_2(x,n/2)*x;
+        }
+    }
+
 }
