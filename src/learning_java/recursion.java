@@ -6,9 +6,7 @@ public class recursion {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
-        int power = scanner.nextInt();
-        System.out.println(Math_power(number,power));
-        System.out.println(Math_power_2(number,power));
+        towerOfHanoi(number,"s","h","d");
     }
 
     // printing N to 1
@@ -105,6 +103,17 @@ public class recursion {
         }else{
             return Math_power_2(x,n/2)*Math_power_2(x,n/2)*x;
         }
+    }
+
+    public static void towerOfHanoi(int n, String src,String helper,String destination){
+
+        if(n==1){
+            System.out.println("transfer "+ n + " from "+src+" to "+destination);
+            return;
+        }
+        towerOfHanoi(n-1,src,destination,helper);
+        System.out.println("transfer "+ n + " from "+src+" to "+destination);
+        towerOfHanoi(n-1,helper,src,destination);
     }
 
 }
