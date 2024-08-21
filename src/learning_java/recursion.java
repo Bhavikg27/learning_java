@@ -2,9 +2,44 @@ package learning_java;
 
 @SuppressWarnings("ALL")
 public class recursion {
+
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,9};
-        System.out.println(isSorted(arr,0));
+
+
+    }
+
+    public static boolean[] map=new boolean[256];
+    public static void removeDuplicate(int index,String str, String newString){
+        if(index==str.length()){
+            System.out.println(newString);
+            return;
+        }
+        char currChar = str.charAt(index);
+        if(map[currChar]) {
+            removeDuplicate(index+1,str,newString);
+        }else{
+            newString+=currChar;
+            map[currChar]=true;
+            removeDuplicate(index+1,str,newString);
+        }
+    }
+
+    public static void pushAllX(String str,int index,int count, String newString){
+        if(index==str.length()){
+            for(int i=1;i<=count;i++){
+                newString += 'x';
+            }
+            System.out.println(newString);
+            return;
+        }
+
+        char currentchar = str.charAt(index);
+        if(currentchar=='x'){
+            pushAllX(str,index+1,count+1,newString);
+        }else{
+            newString+=currentchar;
+            pushAllX(str,index+1,count,newString);
+        }
     }
 
     public static boolean isSorted(int[] arr, int index){
@@ -152,3 +187,4 @@ public class recursion {
         printReverse(str, index - 1);
     }
 }
+
