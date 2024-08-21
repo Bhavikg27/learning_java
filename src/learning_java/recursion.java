@@ -1,15 +1,13 @@
 package learning_java;
 
-import java.util.Scanner;
-
+@SuppressWarnings("ALL")
 public class recursion {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int[] arr = {1,2,3,4,5,9};
         System.out.println(isSorted(arr,0));
     }
 
-    public static boolean isSorted(int arr[],int index){
+    public static boolean isSorted(int[] arr, int index){
         if(index== arr.length-1){
             return true;
         }
