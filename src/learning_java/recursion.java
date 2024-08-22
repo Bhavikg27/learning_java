@@ -6,6 +6,8 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
+
+
     }
 
     public static void uniqueSubSequence(int index, String str, String substring,HashSet<String> set){
@@ -81,6 +83,9 @@ public class recursion {
     }
 
     public static boolean isSorted(int[] arr, int index){
+        /*add this in main
+        int[] arr = {1,2,3,4,5,5};
+        System.out.println(isSorted(arr,0));*/
         if(index== arr.length-1){
             return true;
         }
@@ -94,6 +99,9 @@ public class recursion {
     public static int first = -1;
     public static int last = -1;
     public static void fandLOcc(int index, char element, String str) {
+        /*add this in main
+          fandLOcc(0,'c',"acbhdcjdccbc");
+        */
         if(index == str.length()){
             System.out.println(first);
             System.out.println(last);
