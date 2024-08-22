@@ -1,15 +1,51 @@
 package learning_java;
 
+import java.util.HashSet;
+
 @SuppressWarnings("ALL")
 public class recursion {
 
     public static void main(String[] args) {
+    }
 
+    public static void uniqueSubSequence(int index, String str, String substring,HashSet<String> set){
+        /* add these in main to make it work
+        HashSet<String> set= new HashSet<>();
+        uniqueSubSequence(0,"aaa","",set);*/
+        if (index == str.length()) {
+            if(set.contains(substring)){
+                return;
+            }else{
+                System.out.println(substring);
+                set.add(substring);
+                return;
+            }
+        }
+        char currchar = str.charAt(index);
+        //to be
+        uniqueSubSequence(index + 1, str, substring + currchar, set);
+        //or not to be
+        uniqueSubSequence(index + 1, str, substring, set);
+    }
 
+    public static void subsequence (int index, String str, String substring){
+        /* add these in main to make it work
+        subsequence(0,"abc","");*/
+        if(index == str.length()){
+            System.out.println(substring);
+            return;
+        }
+        char currchar = str.charAt(index);
+        //to be
+        subsequence(index+1,str,substring+currchar);
+        //or not to be
+        subsequence(index+1,str,substring);
     }
 
     public static boolean[] map=new boolean[256];
     public static void removeDuplicate(int index,String str, String newString){
+        /*add this to in main
+        removeDuplicate(0,"abbccda","");*/
         if(index==str.length()){
             System.out.println(newString);
             return;
@@ -25,6 +61,8 @@ public class recursion {
     }
 
     public static void pushAllX(String str,int index,int count, String newString){
+        /*add this in main
+        pushAllX("abcxfxxg",0,0,"");*/
         if(index==str.length()){
             for(int i=1;i<=count;i++){
                 newString += 'x';
