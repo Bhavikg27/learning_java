@@ -7,17 +7,36 @@ public class recursion {
 
     public static void main(String[] args) {
 
-
     }
 
-    public static void uniqueSubSequence(int index, String str, String substring,HashSet<String> set){
+    public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqr","stu","vwx","yz"};
+    public static void printCombinations(String str, int index, int count, String combination) {
+/*      add this in main
+        printCombinations("11331833344",0,0,"");
+*/
+        if (index == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+        char currChar = str.charAt(index);
+        String mapping = keypad[currChar - '0'];
+        int charIndex = (count % mapping.length());
+        combination += mapping.charAt(charIndex);
+        if (index + 1 < str.length() && str.charAt(index + 1) == currChar) {
+            printCombinations(str, index + 1, count + 1, combination.substring(0, combination.length() - 1));
+        } else {
+            printCombinations(str, index + 1, 0, combination);
+        }
+    }
+
+    public static void uniqueSubSequence(int index, String str, String substring, HashSet<String> set) {
         /* add these in main to make it work
         HashSet<String> set= new HashSet<>();
         uniqueSubSequence(0,"aaa","",set);*/
         if (index == str.length()) {
-            if(set.contains(substring)){
+            if (set.contains(substring)) {
                 return;
-            }else{
+            } else {
                 System.out.println(substring);
                 set.add(substring);
                 return;
@@ -30,43 +49,44 @@ public class recursion {
         uniqueSubSequence(index + 1, str, substring, set);
     }
 
-    public static void subsequence (int index, String str, String substring){
+    public static void subsequence(int index, String str, String substring) {
         /* add these in main to make it work
         subsequence(0,"abc","");*/
-        if(index == str.length()){
+        if (index == str.length()) {
             System.out.println(substring);
             return;
         }
         char currchar = str.charAt(index);
         //to be
-        subsequence(index+1,str,substring+currchar);
+        subsequence(index + 1, str, substring + currchar);
         //or not to be
-        subsequence(index+1,str,substring);
+        subsequence(index + 1, str, substring);
     }
 
-    public static boolean[] map=new boolean[256];
-    public static void removeDuplicate(int index,String str, String newString){
+    public static boolean[] map = new boolean[256];
+
+    public static void removeDuplicate(int index, String str, String newString) {
         /*add this to in main
         removeDuplicate(0,"abbccda","");*/
-        if(index==str.length()){
+        if (index == str.length()) {
             System.out.println(newString);
             return;
         }
         char currChar = str.charAt(index);
-        if(map[currChar]) {
-            removeDuplicate(index+1,str,newString);
-        }else{
-            newString+=currChar;
-            map[currChar]=true;
-            removeDuplicate(index+1,str,newString);
+        if (map[currChar]) {
+            removeDuplicate(index + 1, str, newString);
+        } else {
+            newString += currChar;
+            map[currChar] = true;
+            removeDuplicate(index + 1, str, newString);
         }
     }
 
-    public static void pushAllX(String str,int index,int count, String newString){
+    public static void pushAllX(String str, int index, int count, String newString) {
         /*add this in main
         pushAllX("abcxfxxg",0,0,"");*/
-        if(index==str.length()){
-            for(int i=1;i<=count;i++){
+        if (index == str.length()) {
+            for (int i = 1; i <= count; i++) {
                 newString += 'x';
             }
             System.out.println(newString);
@@ -74,35 +94,36 @@ public class recursion {
         }
 
         char currentchar = str.charAt(index);
-        if(currentchar=='x'){
-            pushAllX(str,index+1,count+1,newString);
-        }else{
-            newString+=currentchar;
-            pushAllX(str,index+1,count,newString);
+        if (currentchar == 'x') {
+            pushAllX(str, index + 1, count + 1, newString);
+        } else {
+            newString += currentchar;
+            pushAllX(str, index + 1, count, newString);
         }
     }
 
-    public static boolean isSorted(int[] arr, int index){
+    public static boolean isSorted(int[] arr, int index) {
         /*add this in main
         int[] arr = {1,2,3,4,5,5};
         System.out.println(isSorted(arr,0));*/
-        if(index== arr.length-1){
+        if (index == arr.length - 1) {
             return true;
         }
-        if(arr[index]>=arr[index+1]){
+        if (arr[index] >= arr[index + 1]) {
             //array is sorted
             return false;
         }
-        return isSorted(arr,index+1);
+        return isSorted(arr, index + 1);
     }
 
     public static int first = -1;
     public static int last = -1;
+
     public static void fandLOcc(int index, char element, String str) {
         /*add this in main
           fandLOcc(0,'c',"acbhdcjdccbc");
         */
-        if(index == str.length()){
+        if (index == str.length()) {
             System.out.println(first);
             System.out.println(last);
             return;
@@ -115,7 +136,7 @@ public class recursion {
                 last = index;
             }
         }
-        fandLOcc(index+1,element,str);
+        fandLOcc(index + 1, element, str);
     }
 
     // printing N to 1
@@ -126,6 +147,7 @@ public class recursion {
         System.out.println(n);
         printNto1(n - 1);
     }
+
     // printing 1 to N
     public static void print1toN(int i, int n) {
         System.out.println(i);
@@ -160,6 +182,7 @@ public class recursion {
         product *= i;
         factorialOfN(i + 1, n, product);
     }
+
     //factorial of n - way 2
     public static int factorialOfN(int n) {
         if (n == 1 || n == 0) {
@@ -201,6 +224,7 @@ public class recursion {
         int answer = x * power;
         return answer;
     }
+
     // math power with stack height = log(n)
     public static int Math_power_2(int x, int n) {
         if (n == 0) {
@@ -233,4 +257,3 @@ public class recursion {
         printReverse(str, index - 1);
     }
 }
-
