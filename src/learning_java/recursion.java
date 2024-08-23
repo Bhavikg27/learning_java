@@ -6,10 +6,24 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
+        allPermutation("abc","");
+    }
+
+    public static void allPermutation(String str, String permutation){
+        if(str.length()==0){
+            System.out.println(permutation);
+            return;
+        }
+        for(int i=0;i<str.length();i++){
+            char curchar = str.charAt(i);
+            String newStr = str.substring(0,i)+str.substring(i+1);
+            allPermutation(newStr,permutation+curchar);
+        }
 
     }
 
     public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqr","stu","vwx","yz"};
+
     public static void printCombinations(String str, int index, int count, String combination) {
 /*      add this in main
         printCombinations("11331833344",0,0,"");
