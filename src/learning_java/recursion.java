@@ -6,10 +6,13 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
-        allPermutation("abc","");
+
     }
 
     public static void allPermutation(String str, String permutation){
+/*      add this to main
+        allPermutation("abc","");
+*/
         if(str.length()==0){
             System.out.println(permutation);
             return;
