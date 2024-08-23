@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
-
+        
     }
 
     public static void allPermutation(String str, String permutation){
