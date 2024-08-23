@@ -23,7 +23,6 @@ public class recursion {
     }
 
     public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqr","stu","vwx","yz"};
-
     public static void printCombinations(String str, int index, int count, String combination) {
 /*      add this in main
         printCombinations("11331833344",0,0,"");
