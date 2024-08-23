@@ -14,12 +14,11 @@ public class recursion {
             System.out.println(permutation);
             return;
         }
-        for(int i=0;i<str.length();i++){
+        for(int i=0;i<str.length();i++) {
             char curchar = str.charAt(i);
-            String newStr = str.substring(0,i)+str.substring(i+1);
-            allPermutation(newStr,permutation+curchar);
+            String newStr = str.substring(0, i) + str.substring(i + 1);
+            allPermutation(newStr, permutation + curchar);
         }
-
     }
 
     public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqr","stu","vwx","yz"};
