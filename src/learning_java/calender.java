@@ -4,6 +4,7 @@ import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -63,13 +64,17 @@ public class calender {
 //        GregorianCalendar cal = new GregorianCalendar();
 //        System.out.println(cal.isLeapYear(1700));
 
-        LocalDate d = LocalDate.now();
-        System.out.println(d);
+//        LocalDate d = LocalDate.now();
+//        System.out.println(d);
 
-        LocalTime t = LocalTime.now();
-        System.out.println(t);
+//        LocalTime t = LocalTime.now();
+//        System.out.println(t);
 
-        LocalDateTime DT = LocalDateTime.now();
-        System.out.println(DT);
+        LocalDateTime dt = LocalDateTime.now();
+        System.out.println(dt);
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy||hh:mm:ss a -- E");
+        String mydate = dt.format(df);
+        System.out.println(mydate);
     }
 }
