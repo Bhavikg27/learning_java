@@ -39,6 +39,7 @@ public class sorting {
         printarr(arr);
     }
 
+    //time complexity = 0(n^2)
     public static void insertionsort(int arr[]) {
         for (int i = 1; i < arr.length; i++) {
             int current = arr[i];
