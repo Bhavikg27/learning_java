@@ -9,7 +9,7 @@ class KeyPadPhone{
 @FunctionalInterface
 interface myFunctionalInterface {
     void method1();
-//    void methodd2();
+//    void method2();
 }
 
 class AndroidPhone extends KeyPadPhone{
