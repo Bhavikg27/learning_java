@@ -66,10 +66,19 @@ class Library {
         books = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param account account number of the user
+     */
     public void addAccount(library_Account account) {
         accounts.put(account.getAccountNumber(), account);
     }
 
+    /**
+     *
+     * @param accountNumber account number of the user
+     * @return returning account number of the user
+     */
     public library_Account findAccount(int accountNumber) {
         return accounts.get(accountNumber);
     }
@@ -81,11 +90,20 @@ class Library {
         }
     }
 
+    /**
+     *
+     * @param book name of the book
+     */
     public void addBook(Book book) {
         books.add(book);
         System.out.println("Book added: " + book.getName() + " by " + book.getAuthor());
     }
 
+    /**
+     *
+     * @param bookName name of the book
+     * @return returning the book name
+     */
     public Book findBook(String bookName) {
         for (Book book : books) {
             if (book.getName().equalsIgnoreCase(bookName) && !book.isIssued()) {
@@ -119,20 +137,37 @@ class library_Account {
     private String userName;
     private List<Book> issuedBooks;
 
+    /**
+     *
+     * @param accountNumber this is the user account number
+     * @param userName this is the username
+     */
     public library_Account(int accountNumber, String userName) {
         this.accountNumber = accountNumber;
         this.userName = userName;
         this.issuedBooks = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return returning the account number
+     */
     public int getAccountNumber() {
         return accountNumber;
     }
 
+    /**
+     *
+     * @return returning the username
+     */
     public String getUserName() {
         return userName;
     }
 
+    /**
+     *
+     * @param book name of the book being issued
+     */
     public void issueBook(Book book) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -143,6 +178,10 @@ class library_Account {
         System.out.println("Book issued: " + book.getName() + " to " + userName + " on " + formattedDate);
     }
 
+    /**
+     *
+     * @param book name of the book being issued
+     */
     public void returnBook(Book book) {
         book.returnBook();
         issuedBooks.remove(book);
@@ -157,7 +196,20 @@ class library_Account {
     }
 }
 
+/**
+ * Generating java doc for the class
+ *
+ * @author Bhavik Gupta
+ * @version 0.24
+ * @see <a href=https://docs.oracle.com/en/java/javase/22/docs/api/index.html>java Docs</a>
+ * @since 2023
+ */
+
 public class ex7 {
+    /**
+     *
+     * @param args this is the argument given to the main
+     */
     public static void main(String[] args) {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
