@@ -6,11 +6,27 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
-        System.out.println(totalNumberOfPaths(0,0,3,3));
+        System.out.println(placeTiles(4,2));
+    }
+
+    public static int placeTiles(int n, int m){
+        if(n==m){
+            return 2;
+        }
+        if(n<m){
+            return 1;
+        }
+        //vertically
+        int vertPlacement = placeTiles(n-m,m);
+
+        //horizontal
+        int horPlacement = placeTiles(n-1,m);
+
+        return vertPlacement+horPlacement;
     }
 
     public static int totalNumberOfPaths(int i,int j,int n,int m){
-      //System.out.println(totalNumberOfPaths(0,0,3,3));
+        //System.out.println(totalNumberOfPaths(0,0,3,3));
         if(i == n || j == m){
             return 0;
         }
