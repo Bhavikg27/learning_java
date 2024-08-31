@@ -6,7 +6,20 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
-        
+        System.out.println(totalNumberOfPaths(0,0,3,3));
+    }
+
+    public static int totalNumberOfPaths(int i,int j,int n,int m){
+      //System.out.println(totalNumberOfPaths(0,0,3,3));
+        if(i == n || j == m){
+            return 0;
+        }
+        if(i == n-1 && j == m-1){
+            return 1;
+        }
+        int a = totalNumberOfPaths(i+1,j,n,m);
+        int b = totalNumberOfPaths(i,j+1,n,m);
+        return a+b;
     }
 
     public static void allPermutation(String str, String permutation){
