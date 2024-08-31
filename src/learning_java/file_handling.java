@@ -52,5 +52,20 @@ public class file_handling {
             System.out.println("some error occurred while deleting the file");
         }
         */
+
+        StringBuilder table = new StringBuilder();
+        for (int i=2;i<10;i++) {
+            for (int j = 0; j < 10; j++) {
+                table.append(i).append("X").append(j + 1).append("=").append(i * (j + 1)).append("\n");
+            }
+            table.append("\n");
+        }
+        try {
+            FileWriter fileWriter = new FileWriter("MultiplicationTable.txt");
+            fileWriter.write(table.toString());
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
