@@ -1,12 +1,28 @@
 package learning_java;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 @SuppressWarnings("ALL")
 public class recursion {
 
     public static void main(String[] args) {
-        System.out.println(guestPairing(4));
+        int n =3;
+        ArrayList<Integer> subset = new ArrayList<>();
+        find_subsets(n,subset);
+    }
+
+    public static void find_subsets(int n,ArrayList<Integer> subset){
+        if(n==0){
+            System.out.println(subset);
+            return;
+        }
+
+        subset.add(n);
+        find_subsets(n-1,subset);
+
+        subset.remove(subset.size()-1);
+        find_subsets(n-1,subset);
     }
 
     public static int guestPairing(int n){
