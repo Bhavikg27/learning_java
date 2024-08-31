@@ -6,7 +6,19 @@ import java.util.HashSet;
 public class recursion {
 
     public static void main(String[] args) {
-        System.out.println(placeTiles(4,2));
+        System.out.println(guestPairing(4));
+    }
+
+    public static int guestPairing(int n){
+        if(n <= 1){
+            return 1;
+        }
+        if(n == 2){
+            return 2;
+        }
+        int single_pair = guestPairing(n-1);
+        int double_pair = (n-1)*(guestPairing(n-2));
+        return single_pair+double_pair;
     }
 
     public static int placeTiles(int n, int m){
