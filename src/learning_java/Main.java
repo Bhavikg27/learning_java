@@ -16,7 +16,7 @@ public class Main {
                 a[i] = Long.parseLong(input[i]);
             }
 
-            Solution ob = new Solution();
+            Solution1 ob = new Solution1();
             System.out.println(ob.minCost(a));
         }
     }
@@ -26,7 +26,7 @@ public class Main {
 
 
 //Back-end complete function Template for Java
-class Solution {
+class Solution1 {
     // Function to return the minimum cost of connecting the ropes.
     public long minCost(long[] arr) {
         // If there is only one rope, no cost is needed.
