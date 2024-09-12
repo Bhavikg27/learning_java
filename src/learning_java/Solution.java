@@ -1,8 +1,10 @@
+/*
 package learning_java;
 
 class Solution {
     // longest prefix
-    /*public static String longestCommonPrefix(String[] strs) {
+    */
+/*public static String longestCommonPrefix(String[] strs) {
         Arrays.sort(strs);
         String s1 = strs[0];
         String s2 = strs[strs.length - 1];
@@ -14,9 +16,11 @@ class Solution {
                 break;
             }
         }
-        return s1.substring(0, idx);*/
+        return s1.substring(0, idx);*//*
+
     // Longest Substring Without Repeating Characters
-    /*public static int lengthOfLongestSubstring(String s) {
+    */
+/*public static int lengthOfLongestSubstring(String s) {
         List<Character> substringL = new ArrayList<>();
         int LargestLength = 0;
         for (int right = 0; right < s.length(); right++) {
@@ -31,9 +35,11 @@ class Solution {
             LargestLength = Math.max(LargestLength, substringL.size());
         }
         return LargestLength;
-    }*/
+    }*//*
+
     // Median of Two Sorted Arrays
-    /*public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    */
+/*public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] newarray = new int[nums1.length+nums2.length];
         System.arraycopy(nums1, 0, newarray, 0, nums1.length);
         System.arraycopy(nums2, 0, newarray, nums1.length, nums2.length);
@@ -46,7 +52,8 @@ class Solution {
         }else{
             return newarray[lf/2];
         }
-    }*/
+    }*//*
+
     // 5. Longest Palindromic Substring
     public static String longestPalindrome(String s) {
         return s;
@@ -56,3 +63,4 @@ class Solution {
         System.out.println(longestPalindrome("babad"));
     }
 }
+*/
