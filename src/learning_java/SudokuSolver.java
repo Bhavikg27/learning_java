@@ -28,7 +28,7 @@ class Solution2 {
                 textFields[row][col].setBackground(new Color(255, 255, 255));
 
                 textFields[row][col].setMargin(new Insets(0, 0, 0, 0));
-                textFields[row][col].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(138, 43, 226)));  // Default 1px border
+                textFields[row][col].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(138, 43, 226)));
 
                 int top = (row % 3 == 0) ? 3 : 1;
                 int left = (col % 3 == 0) ? 3 : 1;
