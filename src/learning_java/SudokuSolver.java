@@ -53,13 +53,13 @@ class Solution2 {
             }
         }
         try {
-            Thread.sleep(3);
+            Thread.sleep(1);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public boolean helper(char[][] board, int row, int col) {
+    public boolean SolveSudoku(char[][] board, int row, int col) {
         if (row == 9) {
             return true;
         }
@@ -72,7 +72,7 @@ class Solution2 {
         }
 
         if (board[row][col] != '.') {
-            return helper(board, newRow, newCol);
+            return SolveSudoku(board, newRow, newCol);
         } else {
             for (int i = 1; i <= 9; i++) {
                 if (isSafe(board, row, col, i)) {
@@ -80,7 +80,7 @@ class Solution2 {
 
                     updateBoard(board);
 
-                    if (helper(board, newRow, newCol)) {
+                    if (SolveSudoku(board, newRow, newCol)) {
                         return true;
                     }
                     board[row][col] = '.';
@@ -104,10 +104,6 @@ class Solution2 {
             }
         }
         return true;
-    }
-
-    public void solveSudoku(char[][] board) {
-        helper(board, 0, 0);
     }
 }
 
@@ -134,6 +130,6 @@ public class SudokuSolver {
                 {'.', '.', '.',   '.', '8', '.',   '.', '7', '9'}
         };
 
-        solution.solveSudoku(board);
+        solution.SolveSudoku(board,0,0);
     }
 }
