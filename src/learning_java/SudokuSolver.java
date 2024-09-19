@@ -138,3 +138,75 @@ public class SudokuSolver {
         solution.SolveSudoku(board,0,0);
     }
 }
+/*
+package learning_java;
+
+class Solution2 {
+    public boolean SolveSudoku(char[][] board, int row, int col) {
+        if(row == board.length){
+            return true;
+        }
+        int newRow = row;
+        int newCol = col + 1;
+        if (col == board.length - 1) {
+            newRow = row+1;
+            newCol = 0;
+        }
+
+        if (board[row][col] != '.') {
+            return SolveSudoku(board, newRow, newCol);
+        } else {
+            for (int i = 1; i <= 9; i++) {
+                if (isSafe(board, row, col, i)) {
+                    board[row][col] = (char) (i + '0');
+                    if (SolveSudoku(board, newRow, newCol)) {
+                        return true;
+                    } else {
+                        board[row][col] = '.';
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean isSafe(char[][] board,int row,int col, int number){
+        for(int i=0;i<board.length;i++){
+            if(board[i][col] == (char)(number + '0') || board[row][i] == (char)(number + '0')){
+                return false;
+            }
+        }
+        for(int i=0; i< board.length;i++){
+            if(board[(row/3)*3 + i/3][(col/3)*3 + i%3] == (char)number+'0') {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class SudokuSolver {
+    public static void main(String[] args) {
+        char[][] board = {
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        Solution2 solution = new Solution2();
+        solution.SolveSudoku(board,0,0);
+
+        // Print the solved Sudoku board
+        for (char[] row : board) {
+            for (char num : row) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+}*/
