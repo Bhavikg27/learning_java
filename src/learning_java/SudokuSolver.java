@@ -7,6 +7,7 @@ class Solution2 {
 
     private final JTextField[][] textFields = new JTextField[9][9];
 
+    //GUI Framework for user interface
     public Solution2(JFrame frame) {
         frame.setLayout(new GridLayout(3, 3,0,0));
 
@@ -42,6 +43,7 @@ class Solution2 {
         }
     }
 
+    //updates the board with 1ms time delay
     public void updateBoard(char[][] board) {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
@@ -52,6 +54,7 @@ class Solution2 {
                 }
             }
         }
+        //time delay added
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
@@ -59,6 +62,7 @@ class Solution2 {
         }
     }
 
+    //sudoku solver algo
     public boolean SolveSudoku(char[][] board, int row, int col) {
         if (row == 9) {
             return true;
@@ -92,6 +96,7 @@ class Solution2 {
         return false;
     }
 
+    //checks if a number is safe to be written
     public boolean isSafe(char[][] board, int row, int col, int number) {
         for (int i = 0; i < 9; i++) {
             if (board[i][col] == (char) (number + '0') || board[row][i] == (char) (number + '0')) {
